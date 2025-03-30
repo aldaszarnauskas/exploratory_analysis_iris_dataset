@@ -1,0 +1,5 @@
+	mean	std	minima	maxima	median
+sepal_length_(cm)	5.84	0.83	4.3	7.9	5.8
+sepal_width_(cm)	3.05	0.43	2.0	4.4	3.0
+petal_length_(cm)	3.76	1.76	1.0	6.9	4.35
+petal_width_(cm)	1.2	0.76	0.1	2.5	1.3
