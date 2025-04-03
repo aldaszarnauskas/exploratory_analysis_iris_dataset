@@ -1,0 +1,8 @@
+# Working with multidimensional number arrays
+import numpy as np
+# Plotting
+from matplotlib import pyplot as plt
+# Working with dataframes
+import pandas as pd
+# AnchoredText helpts to add texts on a pyplot plots
+from matplotlib.offsetbox import AnchoredText
