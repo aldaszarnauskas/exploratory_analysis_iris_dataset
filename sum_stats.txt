@@ -1,4 +1,4 @@
-	sepal_length_(cm)	sepal_width_(cm)	petal_length_(cm)	petal_width_(cm)
+	sepal_length_cm	sepal_width_cm	petal_length_cm	petal_width_cm
 mean	5.84	3.05	3.76	1.2
 std	0.83	0.43	1.76	0.76
 min	4.3	2.0	1.0	0.1
