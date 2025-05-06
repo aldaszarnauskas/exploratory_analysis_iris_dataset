@@ -2,7 +2,7 @@
 
 ## Table of contents
 * [Introduction](#Intro of the project)
-* [Analysis](#Exploratory analysis on the Iris Dataset¶)
+* [Analysis](#Exploratory analysis on the Iris Dataset)
     * [Import_and_Load](#1-import-required-packages-and-load-and-clean-iris-dataset)
     * [Summary_stats](#2-summary-statistics)
     * [Exploration_of_the_Iris](#3-explonatory-analysis-of-the-iris-dataset)
