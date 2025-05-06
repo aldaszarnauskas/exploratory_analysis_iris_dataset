@@ -1,0 +1,5 @@
+	shap_val	lev_pval	feature	transformation	ANOVA_assumptions
+0	0.24236066329981726	0.11437336318473984	sepal_length_cm	none	True
+1	0.3243505619636426	0.5248269975064537	sepal_width_cm	log	True
+2	0.04643182341672359	0.7254690065126158	petal_length_cm	log	False
+3	0.022468543951619003	0.5651578029551794	petal_width_cm	sqrt	False

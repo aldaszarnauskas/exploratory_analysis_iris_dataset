@@ -1,8 +1,37 @@
+Required packages numpy, matplotlib, pandas, seaborn, scipy, statsmodels, pingouin, tabulate.
+
 # Working with multidimensional number arrays
 import numpy as np
+
 # Plotting
 from matplotlib import pyplot as plt
+
 # Working with dataframes
 import pandas as pd
-# AnchoredText helpts to add texts on a pyplot plots
+
+# AnchoredText helps to add texts on a pyplot plots
 from matplotlib.offsetbox import AnchoredText
+
+# Plotting
+import seaborn as sns
+
+# Stats module
+import scipy.stats as stats
+
+# Stats module
+import statsmodels.api as sm
+
+# One Way ANOVA
+from pingouin import anova
+
+# Welch's ANOVA
+from pingouin import welch_anova
+
+# Post-Hoc Games-Howell
+from pingouin import pairwise_gameshowell as gameshowell
+
+# Post-Hoc Tukey Test
+from pingouin import pairwise_tukey as tukey
+
+# Tabulate pandas df
+from tabulate import tabulate
