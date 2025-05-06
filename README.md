@@ -18,7 +18,7 @@ This project explores the Iris dataset[^1], a widely used resource in machine le
 
 In this project, we will conduct an exploratory analysis comparing the three Iris species for each feature to determine if significant differences exist. Establishing such differences would indicate the potential to distinguish these species based on these measurements. Our analysis will begin with summary statistics to understand the dataset's fundamental properties. Subsequently, we will employ histograms and KDE plots for visual exploration of the data distributions. We will then examine the relationships between all feature pairs to observe potential species-based clustering. If differences between Iris species are visually apparent, we will proceed with ANOVA and, if necessary, post-hoc analysis to pinpoint specific significant differences between Iris species. Prior to these statistical tests, we will assess the normality, homogeneity of variances, and independence of the data for each feature, as these are critical assumptions for ANOVA and post-hoc tests and will guide the selection of appropriate statistical methods.
 
-
+See the analysis in [pands-project.ipynb](pands-project.ipynb). This project will generate tables that can be found in this repository as .txt files and figures as .png files.
 
 ## Exploratory analysis on the Iris Dataset¶
 ### 1. Import Required Packages and Load and Clean Iris Dataset
