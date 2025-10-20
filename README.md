@@ -1,72 +1,128 @@
-# Pands-Project
+# Exploratory Analysis of the Iris Dataset
 
-## Table of contents
-* [Introduction](#Intro-of-the-project)
-* [Analysis](#Exploratory-analysis-on-the-Iris-Dataset)
-    * [Import_and_Load](#1-import-required-packages-and-load-and-clean-iris-dataset)
-    * [Summary_stats](#2-summary-statistics)
-    * [Exploration_of_the_Iris](#3-explonatory-analysis-of-the-iris-dataset)
-    * [ANOVA_and_Post-Hoc](#4-difference-between-iris-classess)
-* [Requirements](#Requirements)
-* [License](#License)
-* [Reference](#Reference)
+### Author  
+**Aldas Zarnauskas**
 
-## Intro of the project
-![Iris Flower](blue_iris_flower_with_.jpeg)  
+---
 
-This project explores the Iris dataset[^1], a widely used resource in machine learning and statistics[^2]. The dataset comprises 150 samples of three Iris species (Setosa, Versicolor, and Virginica) with 50 samples each. Each sample has four features: sepal length, sepal width, petal length, and petal width (in centimeters). (See a beautiful example of an Iris flower above.) The dataset is readily available through Python packages like scikit-learn[^3] and the UC Irvine Machine Learning Repository[^4]. Originally introduced by British statistician Ronald Fisher in his 1936 paper[^5], the data was collected by Edgar Anderson to identify distinct morphologies among different Iris species[^6]. Numerous analyses of the Iris dataset exist online, ranging from exploratory studies of its characteristics[^7] to the application of various machine learning techniques and neural network reconstructions[^8].
+## Table of Contents
+- [Introduction](#introduction)
+- [Exploratory Analysis](#exploratory-analysis)
+  - [1. Import, Load, and Clean Data](#1-import-load-and-clean-data)
+  - [2. Summary Statistics](#2-summary-statistics)
+  - [3. Exploratory Data Analysis](#3-exploratory-data-analysis)
+  - [4. ANOVA and Post-Hoc Analysis](#4-anova-and-post-hoc-analysis)
+- [Requirements](#requirements)
+- [License](#license)
+- [References](#references)
 
-In this project, we will conduct an exploratory analysis comparing the three Iris species for each feature to determine if significant differences exist. Establishing such differences would indicate the potential to distinguish these species based on these measurements. Our analysis will begin with summary statistics to understand the dataset's fundamental properties. Subsequently, we will employ histograms and KDE plots for visual exploration of the data distributions. We will then examine the relationships between all feature pairs to observe potential species-based clustering. If differences between Iris species are visually apparent, we will proceed with ANOVA and, if necessary, post-hoc analysis to pinpoint specific significant differences between Iris species. Prior to these statistical tests, we will assess the normality, homogeneity of variances, and independence of the data for each feature, as these are critical assumptions for ANOVA and post-hoc tests and will guide the selection of appropriate statistical methods.
+---
 
-See the analysis in [pands-project.ipynb](pands-project.ipynb). This project will generate tables that can be found in this repository as .txt files and figures as .png files.
+## Introduction
+<img src="blue_iris_flower_with_.jpeg" alt="Iris Flower" width="350">
 
-## Exploratory analysis on the Iris Dataset¶
-### 1. Import Required Packages and Load and Clean Iris Dataset
-In this section, we will load the required packages and the data. Moreover, the DataFrame will undergo a cleaning process to address missing values and remove any redundant information from its columns, ensuring its suitability for further analysis.
+This project explores the **Iris dataset**[^1], a classic resource in **machine learning and statistics**[^2].  
+The dataset contains **150 samples** of three Iris species—*Setosa*, *Versicolor*, and *Virginica*—each with **50 samples**.  
+Each sample includes four numerical features:
 
-#### 1.1 Import required packages
-#### 1.2 Load the Iris data set
-#### 1.3 Load the metadata of the Iris data set with 'with open()' function
-#### 1.4 Extract the attribute information from the metadata file
-#### 1.5 Clean the df
-### 2. Summary statistics
-In this section, we will calculate summary statistics for each feature, including measures of both central tendency and dispersion. There are two main types of measurements for these statistics: absolute and relative. Absolute measurements quantify the actual values within the dataset, allowing us to observe the direct magnitude of these values. In contrast, relative measurements calculate ratios or coefficients that enable comparisons across different datasets, even those with significantly different magnitudes. 
+- Sepal length  
+- Sepal width  
+- Petal length  
+- Petal width  
 
-#### 2.1 Calculate summary statistics
-#### 2.2 Save summary statistics to a text file
-### 3. Explonatory analysis of the Iris dataset
-In this section, we will plot histograms, KDE plots, and scatter plots to explore the distribution of each feature and the correlations between feature pairs. This will enhance our understanding of the dataset's features and inform subsequent analyses.
+These measurements (in centimeters) are used to distinguish among the species.
 
-#### 3.1 Initial examination of the datasets, Histogram and KDE plot
-#### 3.2 Plot scatter plots of all feature pairs
-##### 3.2.1 Calculate $R^{2}$
-##### 3.2.2 Plot a regression line on the scatter plot
-##### 3.2.3 Define a function to calculate correlation coefficient, r
-##### 3.2.4 Define a function to calculate $R^{2}$
-#### 3.3 Define a function to plot a regression line
-#### 3.4 Plot scatter plots of the features
-### 4. Difference Between Iris Classess
-ANOVA
-In this section, we will examine the differences between three Iris species—Iris setosa, Iris versicolor, and Iris virginica—across four features: sepal length, sepal width, petal length, and petal width. The most suitable method to test for differences between three or more groups for a single dependent variable is ANOVA (Analysis of Variance). Several ANOVA types are suitable for datasets with different properties. For instance, if the dataset has only one independent variable (factor), then a One-Way ANOVA is appropriate. On the other hand, for datasets with two independent variables, a Two-Way ANOVA is the right choice, and for datasets with three or more independent variables, PERMANOVA (Permutational Multivariate Analysis of Variance) is often the optimal choice, especially when dealing with multivariate data. However, ANOVA relies on three key assumptions: the data must be normally distributed, must exhibit homoscedasticity (homogeneous variance), and the data points must be independent. If a dataset does not meet the normality or homoscedasticity assumptions, it can sometimes be transformed to see if these assumptions are met after the transformation. If the dataset still does not meet the assumptions even after data transformations, then we can choose from several ANOVA methods suitable for datasets that do not meet these assumptions. In this case, we will use Welch's ANOVA to test for differences between classes in datasets that violate these assumptions. Furthermore, if the dataset does not meet the independence assumption, then it is not suitable for further analyses and should ideally be resampled.
+The dataset is available through **scikit-learn**[^3] and the **UC Irvine Machine Learning Repository**[^4].  
+Originally introduced by *Ronald Fisher (1936)*[^5] and collected by *Edgar Anderson*[^6], it has since become a foundational dataset for testing classification and statistical analysis techniques[^7] [^8].
 
-Normality, Homoscedasticity and Independence
-To determine which type of ANOVA we should use, we will assess normality using histograms and QQ-plots of the residuals, homoscedasticity with a residuals versus fitted values plot, and the independence of data points by plotting residuals versus ordered values. In addition to these visual aids, we will further test normality and homoscedasticity using the Shapiro-Wilk test and Levene's test, respectively. If the data meet all the assumptions, then we will use the One-Way ANOVA method. The One-Way ANOVA method is suitable for datasets that meet all assumptions and have only one independent variable; in our case, the independent variable is species. Nonetheless, if the data are not normally distributed or do not have equal variances, we have two options: either transform the data or perform Welch's ANOVA, which is a suitable method for datasets that do not meet the standard ANOVA assumptions. Before deciding to use Welch's ANOVA, we will explore data transformations. There are many ways to transform data, but here we will use five methods: square root, logarithm, squaring, exponential, and reciprocal transformations. If the data meet the assumptions after transformation, then we will use the transformed data with a One-Way ANOVA. However, if none of the transformations successfully allow the data to meet all the assumptions, then we will use Welch's ANOVA. In addition, if the data do not meet the independence criterion, then we either have to collect new samples in a way that ensures independence or include the variable causing the dependence in the statistical model.
+### Project Aim
+In this project, we perform an **exploratory data analysis (EDA)** to determine whether significant differences exist among the three Iris species based on their features.
 
-Post-Hoc
-When the ANOVA model yields a statistically significant result, it indicates that there is a significant difference between at least one pair of the groups being compared. In such cases, a post-hoc test is performed to identify precisely which pairs exhibit this significant difference. Several types of post-hoc tests are available. Ideally, Tukey's Honestly Significant Difference (HSD) test is employed when the data meet both the normality and homoscedasticity assumptions. Conversely, if the data violate these assumptions, the Games-Howell test may be used to determine which specific pairs of groups show a significant difference in their means.
+We begin with:
+- **Summary statistics** to understand basic data properties.  
+- **Visual exploration** using histograms, KDE plots, and scatter plots to identify clustering patterns.  
+- **Statistical tests** (ANOVA and post-hoc analyses) to confirm whether observed differences are statistically significant.  
 
-#### 4.1 Visual Examination of Normality, Homogeneity of variance, Independence
-#### 4.2 Shapiro-Wilk test and Levene's test
-#### 4.3 One Way ANOVA and Welsch's ANOVA
-#### 4.4 Post-Hoc TukeyHSD and Games-Howell's Tests
-#### 4.5 Box-Plots of the Post-Hoc Results
+All analyses are conducted in the notebook [pands-project.ipynb](pands-project.ipynb).  
+Generated figures (`.png`) and tables (`.txt`) are available in this repository.
+
+---
+
+## Exploratory Analysis
+
+### 1. Import, Load, and Clean Data
+In this section, we:
+- Import required Python packages.
+- Load the Iris dataset.
+- Read metadata using the `with open()` function.
+- Extract attribute information.
+- Clean the dataset by handling missing values and removing redundant columns.
+
+---
+
+### 2. Summary Statistics
+We calculate **summary statistics** for each feature, including measures of **central tendency** and **dispersion**.
+
+Two types of metrics are considered:
+- **Absolute measures** – quantify actual values (e.g., mean, median, std).
+- **Relative measures** – express relationships (e.g., coefficients of variation).
+
+#### Steps
+- 2.1 Compute summary statistics  
+- 2.2 Save statistics to a text file  
+
+---
+
+### 3. Exploratory Data Analysis
+We visualize distributions and relationships between features.
+
+#### Methods
+- **Histograms and KDE plots** – visualize feature distributions by species.  
+- **Scatter plots** – examine pairwise relationships between features.  
+- **Regression analysis** – calculate correlation coefficients (`r`) and coefficients of determination (`R²`).  
+
+#### Steps
+- 3.1 Plot histograms and KDEs  
+- 3.2 Plot scatter matrices and regression lines  
+- 3.3 Define helper functions for `r` and `R²`  
+- 3.4 Save generated plots as `.png` files  
+
+---
+
+### 4. ANOVA and Post-Hoc Analysis
+
+We test for differences among Iris species using **ANOVA (Analysis of Variance)** and **post-hoc** methods.
+
+#### 4.1 Testing Assumptions
+Before performing ANOVA, we check three assumptions:
+- **Normality** (via histograms, QQ-plots, and Shapiro–Wilk test)
+- **Homogeneity of variances** (via residual plots and Levene’s test)
+- **Independence** (via residual vs. ordered values plots)
+
+If assumptions are violated:
+- We attempt **data transformations** (square root, log, square, exponential, reciprocal).
+- If violations persist, we apply **Welch’s ANOVA**, suitable for unequal variances.
+
+#### 4.2 Post-Hoc Analysis
+When ANOVA reveals significant differences:
+- **Tukey’s HSD test** is used if assumptions are met.  
+- **Games–Howell test** is used if assumptions are violated.
+
+#### 4.3 Visualization
+Final results are presented using **box plots** of post-hoc comparisons.
+
+---
 
 ## Requirements
-Find the requirements for this project in [requirements.txt](requirements.txt).
+All dependencies are listed in [requirements.txt](requirements.txt).  
+To install them, run:
 
+```bash
+pip install -r requirements.txt
+```
 
-## License
-No license
+License
+No license specified.
 
 ## Reference
 [^1]: https://scikit-learn.org/1.4/auto_examples/datasets/plot_iris_dataset.html
